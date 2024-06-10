@@ -1,6 +1,10 @@
 import axios from "axios";
-import { PATHS, SERVER_URL } from "../utils/constants";
+import { SERVER_URL, TOKEN_KEY } from "../utils/constants";
+import { getLocalStorage } from "../utils/local-storage";
 
 export const apiClient = axios.create({
-    baseURL: SERVER_URL
+    baseURL: SERVER_URL,
+    headers: {
+        "Authorization": `Bearer ${getLocalStorage(TOKEN_KEY)}`
+    }
 })

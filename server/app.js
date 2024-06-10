@@ -22,7 +22,7 @@ const userRouter = require('./routes/users');
 app.use('/users', verifyUser, userRouter);
 
 const authRouter = require('./routes/auth');
-app.use('/auth', verifyUser, authRouter);
+app.use('/auth', authRouter);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on port ${port}`));

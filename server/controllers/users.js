@@ -18,7 +18,8 @@ exports.getUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
         return res.status(200).json({
-            user
+            success: true,
+            user: req.currentUser
         })
     } catch (error) {
         return res.status(400).json({
